@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/listFragment2">
+    <fragment
+        android:id="@+id/listFragment2"
+        android:name="id.ac.unhas.daftarnilai.fragment.list.listFragment"
+        android:label="Daftar Nilai"
+        tools:layout="@layout/fragment_list2" >
+        <action
+            android:id="@+id/action_listFragment2_to_addFragment2"
+            app:destination="@id/addFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment2"
+        android:name="id.ac.unhas.daftarnilai.fragment.add.addFragment"
+        android:label="Tambah Nilai"
+        tools:layout="@layout/fragment_add2" >
+        <action
+            android:id="@+id/action_addFragment2_to_listFragment2"
+            app:destination="@id/listFragment2" />
+    </fragment>
+</navigation>

@@ -10,7 +10,7 @@ import id.ac.unhas.daftarnilai.model.Siswa
 @Dao
 interface SiswaDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addNilai(user:Siswa)
+    suspend fun addNilai(siswa:Siswa)
 
     @Query("SELECT * FROM tabel_siswa ORDER BY id ASC")
     fun readAllData():LiveData<List<Siswa>>

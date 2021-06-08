@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 @InternalCoroutinesApi
 class ViewModel (application: Application):AndroidViewModel(application){
 
-    private val readAllData: LiveData<List<Siswa>>
+    val readAllData: LiveData<List<Siswa>>
     private val repository: SiswaRepository
 
     init{

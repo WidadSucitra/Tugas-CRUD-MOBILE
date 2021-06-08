@@ -23,9 +23,15 @@ class ViewModel (application: Application):AndroidViewModel(application){
         readAllData = repository.readAllData
     }
 
-    fun addUser(siswa: Siswa){
+    fun addSiswa(siswa: Siswa){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addNilai(siswa)
+        }
+    }
+
+    fun updateSiswa(siswa: Siswa){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateNilai(siswa)
         }
     }
 }

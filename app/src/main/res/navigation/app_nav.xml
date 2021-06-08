@@ -13,6 +13,9 @@
             android:id="@+id/action_listFragment2_to_addFragment2"
             app:destination="@id/addFragment2" />
     </fragment>
+    <action
+        android:id="@+id/action_listFragment2_to_updateFragment2"
+        app:destination="@id/updateFragment2" />
     <fragment
         android:id="@+id/addFragment2"
         android:name="id.ac.unhas.daftarnilai.fragment.add.addFragment"
@@ -21,5 +24,17 @@
         <action
             android:id="@+id/action_addFragment2_to_listFragment2"
             app:destination="@id/listFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment2"
+        android:name="id.ac.unhas.daftarnilai.fragment.update.UpdateFragment"
+        android:label="Update Nilai"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment2_to_listFragment2"
+            app:destination="@id/listFragment2" />
+        <argument
+            android:name="currentLayout"
+            app:argType="id.ac.unhas.daftarnilai.model.Siswa" />
     </fragment>
 </navigation>

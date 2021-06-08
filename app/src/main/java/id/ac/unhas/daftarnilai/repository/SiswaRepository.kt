@@ -12,4 +12,8 @@ class SiswaRepository (private val siswaDao: SiswaDao){
         siswaDao.addNilai(siswa)
     }
 
+    suspend fun updateNilai(siswa: Siswa){
+        siswaDao.updateNilai(siswa)
+    }
+
 }

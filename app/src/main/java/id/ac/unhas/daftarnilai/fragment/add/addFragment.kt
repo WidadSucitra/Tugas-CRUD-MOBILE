@@ -52,7 +52,7 @@ class addFragment : Fragment() {
             //Create User Object
             val siswa = Siswa(0, Nama, Kelas, Tugas, Mid, nilaifinal)
             //Add Data to database
-            mViewModel.addUser(siswa)
+            mViewModel.addSiswa(siswa)
             Toast.makeText(requireContext(), "Successfully added", Toast.LENGTH_SHORT).show()
             //Navigate Back
             findNavController().navigate(R.id.action_addFragment2_to_listFragment2)

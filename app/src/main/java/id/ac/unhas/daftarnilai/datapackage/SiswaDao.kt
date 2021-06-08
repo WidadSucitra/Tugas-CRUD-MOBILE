@@ -12,6 +12,12 @@ interface SiswaDao {
     @Update
     suspend fun updateNilai(siswa: Siswa)
 
+    @Delete
+    suspend fun deleteSiswa(siswa: Siswa)
+
+    @Query("DELETE FROM tabel_siswa")
+    suspend fun deleteAllSiswa()
+
     @Query("SELECT * FROM tabel_siswa ORDER BY id ASC")
     fun readAllData():LiveData<List<Siswa>>
 }

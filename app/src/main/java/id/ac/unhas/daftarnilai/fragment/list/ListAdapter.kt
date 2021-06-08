@@ -1,18 +1,27 @@
 package id.ac.unhas.daftarnilai.fragment.list
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.unhas.daftarnilai.R
 import id.ac.unhas.daftarnilai.model.Siswa
+import id.ac.unhas.daftarnilai.viewmodel.ViewModel
 import kotlinx.android.synthetic.main.fragment_update.view.*
 import kotlinx.android.synthetic.main.items.view.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
-
+    @InternalCoroutinesApi
+    private lateinit var mViewModel: ViewModel
     private var siswaList = emptyList<Siswa>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
@@ -27,7 +36,6 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = siswaList[position]
-        holder.itemView.id_view.text = "${currentItem.id}."
         holder.itemView.nama.text = "Nama: ${currentItem.Nama}"
         holder.itemView.kelas.text = "Kelas: ${currentItem.Kelas}"
         holder.itemView.tugas.text = "Rata-rata tugas: ${currentItem.tugas}"

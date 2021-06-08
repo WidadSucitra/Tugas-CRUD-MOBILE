@@ -34,4 +34,16 @@ class ViewModel (application: Application):AndroidViewModel(application){
             repository.updateNilai(siswa)
         }
     }
+
+    fun deleteSiswa(siswa: Siswa){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteSiswa(siswa)
+        }
+    }
+
+    fun deleteAllSiswa(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllSiswa()
+        }
+    }
 }

@@ -16,4 +16,12 @@ class SiswaRepository (private val siswaDao: SiswaDao){
         siswaDao.updateNilai(siswa)
     }
 
+    suspend fun deleteSiswa(siswa: Siswa){
+        siswaDao.deleteSiswa(siswa)
+    }
+
+    suspend fun  deleteAllSiswa(){
+        siswaDao.deleteAllSiswa()
+    }
+
 }

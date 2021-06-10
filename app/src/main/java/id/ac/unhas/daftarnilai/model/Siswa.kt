@@ -9,10 +9,10 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "tabel_siswa")
 data class Siswa (
     @PrimaryKey(autoGenerate = true)
-    val id: Int?,
-    val Nama: String?,
-    val Kelas: String?,
-    val tugas: String?,
-    val mid:String?, //HAH
-    val nilaifinal: String?
+    val id: Int,
+    val Nama: String,
+    val Kelas: String,
+    val tugas: String,
+    val mid: String,
+    val nilaifinal: String
 ):Parcelable

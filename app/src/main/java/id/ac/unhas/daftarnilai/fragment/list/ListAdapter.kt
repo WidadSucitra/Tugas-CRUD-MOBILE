@@ -20,11 +20,12 @@ import kotlinx.coroutines.InternalCoroutinesApi
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
-    @InternalCoroutinesApi
     private lateinit var mViewModel: ViewModel
     private var siswaList = emptyList<Siswa>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
+    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.items, parent, false))
@@ -41,14 +42,18 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.tugas.text = "Rata-rata tugas: ${currentItem.tugas}"
         holder.itemView.mid.text = "Nilai mid: ${currentItem.mid}"
         holder.itemView.nilaifinal.text = "Nilai mid: ${currentItem.nilaifinal}"
+
         holder.itemView.itemlayout.setOnClickListener {
             val action = listFragmentDirections.actionListFragment2ToUpdateFragment2(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
+
+
     }
 
     fun setData(siswa: List<Siswa>){
         this.siswaList = siswa
         notifyDataSetChanged()
     }
+
 }

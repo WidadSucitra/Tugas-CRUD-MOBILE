@@ -17,8 +17,8 @@ import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
 import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 class UpdateFragment : Fragment() {
+
     private val args by  navArgs<UpdateFragmentArgs>()
     private lateinit var mViewModel: ViewModel
 
@@ -28,7 +28,9 @@ class UpdateFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_update, container, false)
+
         mViewModel = ViewModelProvider(this).get(ViewModel::class.java)
+
         view.update_nama.setText(args.currentLayout.Nama)
         view.update_kelas.setText(args.currentLayout.Kelas)
         view.update_tugas.setText(args.currentLayout.tugas)
@@ -44,7 +46,6 @@ class UpdateFragment : Fragment() {
         return view
     }
 
-    @InternalCoroutinesApi
     private fun updateDatabase() {
         val Nama =  update_nama.text.toString()
         val Kelas = update_kelas.text.toString()
@@ -54,9 +55,11 @@ class UpdateFragment : Fragment() {
 
         if(inputCheck(Nama, Kelas, Tugas, Mid, nilaifinal)){
             //Create User Object
-            val siswa = Siswa(args.currentLayout.id, Nama, Kelas, Tugas, Mid, nilaifinal)
+            val siswa = args.currentLayout.id?.let { Siswa(it, Nama, Kelas, Tugas, Mid, nilaifinal) }
             //Add Data to database
-            mViewModel.updateSiswa(siswa)
+            if (siswa != null) {
+                mViewModel.updateSiswa(siswa)
+            }
             Toast.makeText(requireContext(), "Successfully updated", Toast.LENGTH_SHORT).show()
             //Navigate Back
             findNavController().navigate(R.id.action_updateFragment2_to_listFragment2)
@@ -65,6 +68,7 @@ class UpdateFragment : Fragment() {
             Toast.makeText(requireContext(), "Failed to update", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun inputCheck(Nama: String, Kelas: String, Tugas: String,
                            Mid: String, nilaifinal: String): Boolean{
         return !(TextUtils.isEmpty(Nama) && TextUtils.isEmpty(Kelas) && TextUtils.isEmpty(Tugas) &&
@@ -82,7 +86,6 @@ class UpdateFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    @InternalCoroutinesApi
     private fun deleteSiswa() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->

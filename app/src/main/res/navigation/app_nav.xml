@@ -12,10 +12,10 @@
         <action
             android:id="@+id/action_listFragment2_to_addFragment2"
             app:destination="@id/addFragment2" />
+        <action
+            android:id="@+id/action_listFragment2_to_updateFragment2"
+            app:destination="@id/updateFragment2" />
     </fragment>
-    <action
-        android:id="@+id/action_listFragment2_to_updateFragment2"
-        app:destination="@id/updateFragment2" />
     <fragment
         android:id="@+id/addFragment2"
         android:name="id.ac.unhas.daftarnilai.fragment.add.addFragment"

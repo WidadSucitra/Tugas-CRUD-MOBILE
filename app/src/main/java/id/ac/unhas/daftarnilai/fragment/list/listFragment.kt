@@ -18,10 +18,8 @@ import kotlinx.coroutines.InternalCoroutinesApi
 
 class listFragment : Fragment() {
 
-    @InternalCoroutinesApi
     private lateinit var mViewModel: ViewModel
 
-    @InternalCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,7 +52,6 @@ class listFragment : Fragment() {
         inflater.inflate(R.menu.delete_menu, menu)
     }
 
-    @InternalCoroutinesApi
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.menu_delete){
             deleteAllSiswa()
@@ -62,7 +59,6 @@ class listFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    @InternalCoroutinesApi
     private fun deleteAllSiswa() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->

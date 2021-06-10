@@ -17,13 +17,10 @@ import kotlinx.android.synthetic.main.fragment_add2.*
 import kotlinx.android.synthetic.main.fragment_add2.view.*
 import kotlinx.coroutines.InternalCoroutinesApi
 
-
 class addFragment : Fragment() {
 
-    @InternalCoroutinesApi
     private lateinit var mViewModel: ViewModel
 
-    @InternalCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,7 +37,6 @@ class addFragment : Fragment() {
         return view
     }
 
-    @InternalCoroutinesApi
     private fun insertDatatoDatabase() {
         val Nama =  add_nama.text.toString()
         val Kelas = add_kelas.text.toString()

@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
-@InternalCoroutinesApi
 class ViewModel (application: Application):AndroidViewModel(application){
 
     val readAllData: LiveData<List<Siswa>>
